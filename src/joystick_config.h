@@ -25,5 +25,8 @@
 #define CHANNEL_7_PIN 8
 
 
+#define CHANNELS_DEBUG 1
+
+
 
 #endif

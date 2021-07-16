@@ -16,15 +16,15 @@
 #define JoyStick_Y_PIN A1
 
 //button pins
-#define BTN_TRIGGER 2
-#define BTN_FL 3 
-#define BTN_LASER 4
+#define CHANNEL_1_PIN 2
+#define CHANNEL_2_PIN 3 
+#define CHANNEL_3_PIN 4
 
 //use pullup
 #define USE_PULLUP 1
 
-byte buttons[]={BTN_TRIGGER, BTN_FL, BTN_LASER};
 
-#define TOTAL_BUTTONS 3
+
+
 
 #endif

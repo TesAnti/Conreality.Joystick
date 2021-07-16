@@ -1,6 +1,5 @@
 #include "joystick.h"
-
-
+#include "config.h"
 Joystick::Joystick(int ce, int ss)
 {
     _driver = new RH_NRF24(ce, ss);
@@ -8,12 +7,13 @@ Joystick::Joystick(int ce, int ss)
     _manager = new RHReliableDatagram(*_driver, JOYSTICK_ADDRESS);
 }
 
-bool Joystick::init(byte xAxis, byte yAxis, byte *buttonsArray, int buttonsLen,bool usePullup)
+bool Joystick::init()
 {
-    _x = xAxis;
-    _y = yAxis;
-    _buttons = buttonsArray;
-    _btnLen = buttonsLen;
+    int buttons[]={CHANNEL_1_PIN, CHANNEL_2_PIN, CHANNEL_3_PIN, CHANNEL_4_PIN, CHANNEL_5_PIN, CHANNEL_6_PIN, CHANNEL_7_PIN};
+    _x = JoyStick_X_PIN;
+    _y = JoyStick_Y_PIN;
+    _buttons = buttons;
+    _btnLen = MAX_SUPPORTED_CHANNELS;
 
     bool res = _manager->init();
     if (Serial.availableForWrite())
@@ -28,11 +28,11 @@ bool Joystick::init(byte xAxis, byte yAxis, byte *buttonsArray, int buttonsLen,b
         }
     }
 
-    if(usePullup==1)
+    if (USE_PULLUP == 1)
     {
-        for(int i=0;i<buttonsLen;i++)
+        for (int i = 0; i < _btnLen; i++)
         {
-            pinMode(_buttons[i],INPUT_PULLUP);
+            pinMode(_buttons[i], INPUT_PULLUP);
         }
     }
     return res;
@@ -48,8 +48,27 @@ void Joystick::send()
     joystick[2] = _btnLen;
     for (int i = 0; i < _btnLen; i++)
     {
-        joystick[i + 2 + 1] = digitalRead(_buttons[i]);
+        if (_buttons[i] != -1)
+            joystick[i + 2 + 1] = digitalRead(_buttons[i]);
     }
+#if CHANNELS_DEBUG == 1
+    if (__debug_timeout < millis())
+    {
+        Serial.println("-----------------------------");
+        Serial.print("X:");
+        Serial.print(joystick[0]);
+        Serial.print(" Y:");
+        Serial.println(joystick[1]);
+        for (int i = 0; i < _btnLen; i++)
+        {
+            Serial.print("C");
+            Serial.print(i+1);
+            Serial.print(": ");
+            Serial.println(joystick[i + 2 + 1]);
+        }
+        __debug_timeout=millis()+CHANNELS_DEBUG_INTERVAL;
+    }
+#endif
 
     _manager->sendtoWait(joystick, sizeof(joystick), 255);
 }

@@ -10,7 +10,7 @@
   See configuration examples in config_examples folder
 */
 
-#include "joystick_config.h"
+#include "config.h"
 
 
 /*---------------------------------------------------*/
@@ -40,7 +40,7 @@ void setup()
 {
   Serial.begin(9600);
 
-  joystick.init(JoyStick_X_PIN,JoyStick_Y_PIN,buttons,TOTAL_BUTTONS,USE_PULLUP==1);
+  joystick.init();
 }
 
 void loop()
