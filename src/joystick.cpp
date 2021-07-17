@@ -10,10 +10,12 @@ Joystick::Joystick(int ce, int ss)
     if (CHANNEL_##A##_USE_PULLUP)                 \
         pinMode(CHANNEL_##A##_PIN, INPUT_PULLUP); \
     _buttons[A - 1] = CHANNEL_##A##_PIN;          \
-    _buttonAnalog[A - 1] = CHANNEL_##A##_ANALOG;
+    _buttonAnalog[A - 1] = CHANNEL_##A##_ANALOG;\
+    _channelNames[A - 1]=CHANNEL_##A##_NAME;
 
 bool Joystick::init()
 {
+    
     CONFIURE_CHANNEL(1);
     CONFIURE_CHANNEL(2);
     CONFIURE_CHANNEL(3);
@@ -67,8 +69,7 @@ void Joystick::send()
         Serial.println("-----------------------------");
         for (int i = 0; i < _btnLen; i++)
         {
-            Serial.print("C");
-            Serial.print(i + 1);
+            Serial.print(_channelNames[i]);
             Serial.print(": ");
             Serial.println(joystick[i]);
         }

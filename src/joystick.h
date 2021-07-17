@@ -22,6 +22,7 @@ private:
     byte _y;
     int _buttons[MAX_SUPPORTED_CHANNELS];
     bool _buttonAnalog[MAX_SUPPORTED_CHANNELS];
+    String _channelNames[MAX_SUPPORTED_CHANNELS];
     int _btnLen;
     uint32_t __debug_timeout = 0;
 public:

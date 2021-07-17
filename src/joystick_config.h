@@ -14,13 +14,19 @@
 //axis pins
 #define CHANNEL_1_PIN A0
 #define CHANNEL_1_ANALOG true
+#define CHANNEL_1_NAME "X axis"
+
 #define CHANNEL_2_PIN A1
 #define CHANNEL_2_ANALOG true
-
+#define CHANNEL_2_NAME "Y axis"
 
 //button pins
 #define CHANNEL_3_PIN 2
+#define CHANNEL_3_NAME "A"
+
 #define CHANNEL_4_PIN 3
+#define CHANNEL_4_NAME "B"
+
 #define CHANNEL_5_PIN 4
 #define CHANNEL_6_PIN 5
 #define CHANNEL_7_PIN 6

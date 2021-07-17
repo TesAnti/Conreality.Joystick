@@ -122,6 +122,41 @@
 #define CHANNEL_9_USE_PULLUP false
 #endif
 
+#ifndef CHANNEL_1_NAME
+#define CHANNEL_1_NAME "C1"
+#endif
+
+#ifndef CHANNEL_2_NAME
+#define CHANNEL_2_NAME "C2"
+#endif
+
+#ifndef CHANNEL_3_NAME
+#define CHANNEL_3_NAME "C3"
+#endif
+
+#ifndef CHANNEL_4_NAME
+#define CHANNEL_4_NAME "C4"
+#endif
+
+#ifndef CHANNEL_5_NAME
+#define CHANNEL_5_NAME "C5"
+#endif
+
+#ifndef CHANNEL_6_NAME
+#define CHANNEL_6_NAME "C6"
+#endif
+
+#ifndef CHANNEL_7_NAME
+#define CHANNEL_7_NAME "C7"
+#endif
+
+#ifndef CHANNEL_8_NAME
+#define CHANNEL_8_NAME "C8"
+#endif
+
+#ifndef CHANNEL_9_NAME
+#define CHANNEL_9_NAME "C9"
+#endif
 
 
 #define MAX_SUPPORTED_CHANNELS 9
