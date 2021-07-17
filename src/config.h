@@ -11,23 +11,10 @@
 #define SS_PIN 10
 #endif
 
-#ifndef JoyStick_X_PIN
-#define JoyStick_X_PIN A0
-#endif
-
-#ifndef JoyStick_Y_PIN
-#define JoyStick_Y_PIN A1
-#endif
-
-
-#ifndef USE_PULLUP
-#define USE_PULLUP 0
-#endif
-
-
 #ifndef CHANNEL_1_PIN
 #define CHANNEL_1_PIN -1
 #endif
+
 
 #ifndef CHANNEL_2_PIN
 #define CHANNEL_2_PIN -1
@@ -53,12 +40,91 @@
 #define CHANNEL_7_PIN -1
 #endif
 
+#ifndef CHANNEL_8_PIN
+#define CHANNEL_8_PIN -1
+#endif
+
+#ifndef CHANNEL_9_PIN
+#define CHANNEL_9_PIN -1
+#endif
+
+
+#ifndef CHANNEL_1_ANALOG
+#define CHANNEL_1_ANALOG true
+#endif
+
+#ifndef CHANNEL_2_ANALOG
+#define CHANNEL_2_ANALOG true
+#endif
+
+#ifndef CHANNEL_3_ANALOG
+#define CHANNEL_3_ANALOG false
+#endif
+
+#ifndef CHANNEL_4_ANALOG
+#define CHANNEL_4_ANALOG false
+#endif
+
+#ifndef CHANNEL_5_ANALOG
+#define CHANNEL_5_ANALOG false
+#endif
+
+#ifndef CHANNEL_6_ANALOG
+#define CHANNEL_6_ANALOG false
+#endif
+
+#ifndef CHANNEL_7_ANALOG
+#define CHANNEL_7_ANALOG false
+#endif
+
+#ifndef CHANNEL_8_ANALOG
+#define CHANNEL_8_ANALOG false
+#endif
+
+#ifndef CHANNEL_9_ANALOG
+#define CHANNEL_9_ANALOG false
+#endif
+
+
+#ifndef CHANNEL_1_USE_PULLUP
+#define CHANNEL_1_USE_PULLUP false
+#endif
+
+#ifndef CHANNEL_2_USE_PULLUP
+#define CHANNEL_2_USE_PULLUP false
+#endif
+
+#ifndef CHANNEL_3_USE_PULLUP
+#define CHANNEL_3_USE_PULLUP false
+#endif
+
+#ifndef CHANNEL_4_USE_PULLUP
+#define CHANNEL_4_USE_PULLUP false
+#endif
+
+#ifndef CHANNEL_5_USE_PULLUP
+#define CHANNEL_5_USE_PULLUP false
+#endif
+
+#ifndef CHANNEL_6_USE_PULLUP
+#define CHANNEL_6_USE_PULLUP false
+#endif
+
+#ifndef CHANNEL_7_USE_PULLUP
+#define CHANNEL_7_USE_PULLUP false
+#endif
+
+#ifndef CHANNEL_8_USE_PULLUP
+#define CHANNEL_8_USE_PULLUP false
+#endif
+
+#ifndef CHANNEL_9_USE_PULLUP
+#define CHANNEL_9_USE_PULLUP false
+#endif
 
 
 
-
-
-#define MAX_SUPPORTED_CHANNELS 7
+#define MAX_SUPPORTED_CHANNELS 9
 
 
 #ifndef CHANNELS_DEBUG

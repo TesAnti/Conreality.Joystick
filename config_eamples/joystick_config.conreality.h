@@ -12,16 +12,23 @@
 #define SS_PIN 6
 
 //axis pins
-#define JoyStick_X_PIN A0
-#define JoyStick_Y_PIN A1
+#define CHANNEL_1_PIN A0
+#define CHANNEL_1_ANALOG true
+
+#define CHANNEL_1_PIN A1
+#define CHANNEL_2_ANALOG true
 
 //button pins
-#define CHANNEL_1_PIN 2
-#define CHANNEL_2_PIN 3 
-#define CHANNEL_3_PIN 4
-
-//use pullup
+#define CHANNEL_3_PIN 2
 #define USE_PULLUP 1
+
+#define CHANNEL_4_PIN 3 
+#define USE_PULLUP 1
+
+#define CHANNEL_5_PIN 4
+#define USE_PULLUP 1
+
+
 
 
 

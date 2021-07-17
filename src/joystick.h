@@ -8,6 +8,7 @@
 #include "nRF24L01.h"
 #include "RF24.h"
 #include <SPI.h>
+#include "config.h"
 #ifndef JOYSTICK_ADDRESS
 #define JOYSTICK_ADDRESS 1
 #endif
@@ -19,7 +20,8 @@ private:
     RH_NRF24* _driver;
     byte _x;
     byte _y;
-    int* _buttons;
+    int _buttons[MAX_SUPPORTED_CHANNELS];
+    bool _buttonAnalog[MAX_SUPPORTED_CHANNELS];
     int _btnLen;
     uint32_t __debug_timeout = 0;
 public:
