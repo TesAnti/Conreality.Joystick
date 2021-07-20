@@ -16,6 +16,7 @@
 class Joystick
 {
 private:
+    JoystickConfig* _config;
     RHReliableDatagram* _manager;
     RH_NRF24* _driver;
     byte _x;
@@ -26,8 +27,8 @@ private:
     int _btnLen;
     uint32_t __debug_timeout = 0;
 public:
-    Joystick(int ce, int ss);
-    bool init();
+    
+    bool init(JoystickConfig* config);
     void send();
 };
 

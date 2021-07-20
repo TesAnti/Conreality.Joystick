@@ -1,19 +1,19 @@
 
 # Conreality.Joystick
 
-Conreality.Joystick is a firmware to make arduino+nrf24 based radio joystick 
+Conreality.Joystick is a library to make arduino+nrf24 based radio joystick 
 
-## Prerequisites
+## Installation
 
-You would need PlatformIO.
+Just clone it to the `lib` dir of your project.
 
-All the details here: [platformio.org](https://platformio.org/)
+You would also need following libraries:
+ - nrf24/RF24
+ - mikem/RadioHead
 
 ## Configuration
 
-Open `config_examples` folder and take configuration you like.
 
-Copy it to `src` folder and rename to `joystick_config.h`
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

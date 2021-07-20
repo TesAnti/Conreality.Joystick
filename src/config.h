@@ -1,174 +1,46 @@
 #ifndef CONFIG_H
 #define CONFIG_H
-
-#include "joystick_config.h"
-
-#ifndef CE_PIN
-#define CE_PIN 9
-#endif
-
-#ifndef SS_PIN
-#define SS_PIN 10
-#endif
-
-#ifndef CHANNEL_1_PIN
-#define CHANNEL_1_PIN -1
-#endif
-
-
-#ifndef CHANNEL_2_PIN
-#define CHANNEL_2_PIN -1
-#endif
-
-#ifndef CHANNEL_3_PIN
-#define CHANNEL_3_PIN -1
-#endif
-
-#ifndef CHANNEL_4_PIN
-#define CHANNEL_4_PIN -1
-#endif
-
-#ifndef CHANNEL_5_PIN
-#define CHANNEL_5_PIN -1
-#endif
-
-#ifndef CHANNEL_6_PIN
-#define CHANNEL_6_PIN -1
-#endif
-
-#ifndef CHANNEL_7_PIN
-#define CHANNEL_7_PIN -1
-#endif
-
-#ifndef CHANNEL_8_PIN
-#define CHANNEL_8_PIN -1
-#endif
-
-#ifndef CHANNEL_9_PIN
-#define CHANNEL_9_PIN -1
-#endif
-
-
-#ifndef CHANNEL_1_ANALOG
-#define CHANNEL_1_ANALOG true
-#endif
-
-#ifndef CHANNEL_2_ANALOG
-#define CHANNEL_2_ANALOG true
-#endif
-
-#ifndef CHANNEL_3_ANALOG
-#define CHANNEL_3_ANALOG false
-#endif
-
-#ifndef CHANNEL_4_ANALOG
-#define CHANNEL_4_ANALOG false
-#endif
-
-#ifndef CHANNEL_5_ANALOG
-#define CHANNEL_5_ANALOG false
-#endif
-
-#ifndef CHANNEL_6_ANALOG
-#define CHANNEL_6_ANALOG false
-#endif
-
-#ifndef CHANNEL_7_ANALOG
-#define CHANNEL_7_ANALOG false
-#endif
-
-#ifndef CHANNEL_8_ANALOG
-#define CHANNEL_8_ANALOG false
-#endif
-
-#ifndef CHANNEL_9_ANALOG
-#define CHANNEL_9_ANALOG false
-#endif
-
-
-#ifndef CHANNEL_1_USE_PULLUP
-#define CHANNEL_1_USE_PULLUP false
-#endif
-
-#ifndef CHANNEL_2_USE_PULLUP
-#define CHANNEL_2_USE_PULLUP false
-#endif
-
-#ifndef CHANNEL_3_USE_PULLUP
-#define CHANNEL_3_USE_PULLUP false
-#endif
-
-#ifndef CHANNEL_4_USE_PULLUP
-#define CHANNEL_4_USE_PULLUP false
-#endif
-
-#ifndef CHANNEL_5_USE_PULLUP
-#define CHANNEL_5_USE_PULLUP false
-#endif
-
-#ifndef CHANNEL_6_USE_PULLUP
-#define CHANNEL_6_USE_PULLUP false
-#endif
-
-#ifndef CHANNEL_7_USE_PULLUP
-#define CHANNEL_7_USE_PULLUP false
-#endif
-
-#ifndef CHANNEL_8_USE_PULLUP
-#define CHANNEL_8_USE_PULLUP false
-#endif
-
-#ifndef CHANNEL_9_USE_PULLUP
-#define CHANNEL_9_USE_PULLUP false
-#endif
-
-#ifndef CHANNEL_1_NAME
-#define CHANNEL_1_NAME "C1"
-#endif
-
-#ifndef CHANNEL_2_NAME
-#define CHANNEL_2_NAME "C2"
-#endif
-
-#ifndef CHANNEL_3_NAME
-#define CHANNEL_3_NAME "C3"
-#endif
-
-#ifndef CHANNEL_4_NAME
-#define CHANNEL_4_NAME "C4"
-#endif
-
-#ifndef CHANNEL_5_NAME
-#define CHANNEL_5_NAME "C5"
-#endif
-
-#ifndef CHANNEL_6_NAME
-#define CHANNEL_6_NAME "C6"
-#endif
-
-#ifndef CHANNEL_7_NAME
-#define CHANNEL_7_NAME "C7"
-#endif
-
-#ifndef CHANNEL_8_NAME
-#define CHANNEL_8_NAME "C8"
-#endif
-
-#ifndef CHANNEL_9_NAME
-#define CHANNEL_9_NAME "C9"
-#endif
-
+#include "Arduino.h"
 
 #define MAX_SUPPORTED_CHANNELS 9
 
 
-#ifndef CHANNELS_DEBUG
-#define CHANNELS_DEBUG 0
-#endif
+struct ChannelConfig
+{
+    int pin;
+    bool analog;
+    bool usePullup;
+    const char* name;
+};
+
+struct JoystickConfig
+{
+    int cePin;
+    int ssPin;
+    ChannelConfig channels[MAX_SUPPORTED_CHANNELS];
+    bool channelsDebug;
+    int channelsDebugInterval;
+};
 
 
-#ifndef CHANNELS_DEBUG_INTERVAL
-#define CHANNELS_DEBUG_INTERVAL 500
-#endif
+#define DEFAULT_JOYSTICK_CONFIG(CE,SS) { \
+    .cePin = CE, \
+    .ssPin = SS, \
+    .channels = { \
+        {-1, false, false, NULL}, \
+        {-1, false, false, NULL}, \
+        {-1, false, false, NULL}, \
+        {-1, false, false, NULL}, \
+        {-1, false, false, NULL}, \
+        {-1, false, false, NULL}, \
+        {-1, false, false, NULL}, \
+        {-1, false, false, NULL}, \
+        {-1, false, false, NULL} \
+                 }, \
+    .channelsDebug = false, \
+    .channelsDebugInterval = 500 \
+}
+
+
 
 #endif//h
